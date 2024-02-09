@@ -28,7 +28,7 @@ Your HTML document must contain:
   </iframe>
 </div>
 
-<link rel="stylesheet" href="/path/to/styles/sandbox.css">
+<link rel="stylesheet" href="/path/to/sandbox.css">
 <script src="/path/to/sandbox.js"></script>
 <script>let sandbox = new Sandbox({options});</script>
 ```
