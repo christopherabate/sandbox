@@ -68,9 +68,9 @@ class Sandbox {
     let code = Object.values(input);
     
     let render = new Function(...languages, `return \`${this.template}\`;`)(...code);
-		let clone = this.output.cloneNode();
-		this.output.replaceWith(clone);
-		this.output = clone;
+    let clone = this.output.cloneNode();
+    this.output.replaceWith(clone);
+    this.output = clone;
     
     this.output.contentWindow.document.open();
     this.output.contentWindow.document.writeln(render);
