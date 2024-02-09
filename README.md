@@ -5,8 +5,9 @@ An simple HTML/CSS/JS sandbox
 
 ```html
 <div class="sandbox">
-  <pre><code class="language-html"></code></pre>
-  <pre><code class="language-css"></code></pre>
+  <pre><code class="html"></code></pre>
+  <pre><code class="css"></code></pre>
+  <pre><code class="js"></code></pre>
   <iframe>
     <!doctype html>
     <html>
