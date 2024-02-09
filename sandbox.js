@@ -1,7 +1,6 @@
 class Sandbox {
   
   constructor(options = {}) {
-    
     this.selector = options.selector || ".sandbox";
     this.editable = options.editable || false;
     
@@ -12,11 +11,9 @@ class Sandbox {
     this.update();
     
     if (this.editable !== false) {
-      
       let codeboxes = this.sandbox.querySelectorAll("pre code");
     
       codeboxes.forEach((codebox) => {
-      
         let editor = document.createElement("div");
         editor.classList.add("sandbox-editor");
         
@@ -38,7 +35,6 @@ class Sandbox {
         let timeoutID;
         
         textarea.addEventListener("input", (e) => {
-          
           codebox.textContent = e.target.value;
           
           if (typeof this.editable === "function") {
@@ -59,7 +55,6 @@ class Sandbox {
   }
   
   update() {
-    
     let input = [...this.template.matchAll(/\$\{([\w-]+)\}/g)].reduce((tag, language) => {
       return {...tag, [language[1]]: this.sandbox.querySelector(`code[class*="${language[1]}"]`).textContent};
     }, {});
