@@ -3,6 +3,10 @@ An simple HTML/CSS/JS sandbox
 
 ## Get started
 
+Your HTML document must contain at least these elements:
+- Nested `<pre><code>` for each code box with a class containing at least .
+- `iframe` containing the tagged template.
+
 ```html
 <div class="sandbox">
   <pre><code class="html"></code></pre>
