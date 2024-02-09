@@ -9,7 +9,7 @@ class Sandbox {
     this.output = this.sandbox.querySelector("iframe");
     this.template = this.output.textContent;
     
-    this.updateOutput();
+    this.update();
     
     if (this.editable !== false) {
       
@@ -51,17 +51,17 @@ class Sandbox {
           
           clearTimeout(timeoutID);
           timeoutID = setTimeout(() => {
-            this.updateOutput()
+            this.update()
           }, 400);
         })
       });
     }
   }
   
-  updateOutput() {
+  update() {
     
-    let input = [...this.template.matchAll(/\$\{([\w-]+)\}/g)].reduce((accumulator, value) => {
-      return {...accumulator, [value[1]]: this.sandbox.querySelector(`code[class*="${value[1]}"]`).textContent};
+    let input = [...this.template.matchAll(/\$\{([\w-]+)\}/g)].reduce((tag, language) => {
+      return {...tag, [language[1]]: this.sandbox.querySelector(`code[class*="${language[1]}"]`).textContent};
     }, {});
     
     let languages = Object.keys(input);
