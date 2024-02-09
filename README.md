@@ -25,5 +25,11 @@ An simple HTML/CSS/JS sandbox
 
 <link rel="stylesheet" href="/path/to/styles/sandbox.css">
 <script src="/path/to/sandbox.js"></script>
-<script>let sandbox = new Sandbox();</script>
+<script>let sandbox = new Sandbox({options});</script>
 ```
+
+## Options
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| «selector» | css selector | ".sandbox" |
