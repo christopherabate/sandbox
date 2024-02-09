@@ -31,5 +31,6 @@ An simple HTML/CSS/JS sandbox
 ## Options
 
 | Option | Description | Default |
-|-|-|-|
-| `selector` | css selector | `".sandbox"` |
+|---|---|---|
+| `selector` | Allows any CSS selector. | `".sandbox"` |
+| `editable` | Allows `true` or a callback function for each change on text box. | `false` |
