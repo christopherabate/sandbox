@@ -31,5 +31,5 @@ An simple HTML/CSS/JS sandbox
 ## Options
 
 | Option | Description | Default |
-|--------|-------------|---------|
-| «selector» | css selector | ".sandbox" |
+|-|-|-|
+| `selector` | css selector | `".sandbox"` |
