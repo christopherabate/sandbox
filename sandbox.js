@@ -60,11 +60,9 @@ class Sandbox {
   
   updateOutput() {
     
-    let input = {
-      html: this.sandbox.querySelector("code[class*='html']").textContent,
-      css: this.sandbox.querySelector("code[class*='css']").textContent,
-      js: this.sandbox.querySelector("code[class*='js']").textContent,
-    };
+    let input = [...this.template.matchAll(/\$\{([\w-]+)\}/g)].reduce((accumulator, value) => {
+      return {...accumulator, [value[1]]: this.sandbox.querySelector(`code[class*="${value[1]}"]`).textContent};
+    }, {});
     
     let languages = Object.keys(input);
     let code = Object.values(input);
