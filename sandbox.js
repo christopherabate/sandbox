@@ -4,7 +4,6 @@ class Sandbox {
     
     this.selector = options.selector || ".sandbox";
     this.editable = options.editable || false;
-    this.callback = options.callback || false;
     
     this.sandbox = document.querySelector(this.selector);
     this.output = this.sandbox.querySelector("iframe");
@@ -12,7 +11,7 @@ class Sandbox {
     
     this.updateOutput();
     
-    if (this.editable === true) {
+    if (this.editable !== false) {
       
       let codeboxes = this.sandbox.querySelectorAll("pre code");
     
@@ -42,7 +41,13 @@ class Sandbox {
           
           codebox.textContent = e.target.value;
           
-          if (this.callback !== false) {this.tryCallback(this.callback)}
+          if (typeof this.editable === "function") {
+            try {
+              this.editable();
+            } catch (error) {
+              console.log(error);
+            }
+          }
           
           clearTimeout(timeoutID);
           timeoutID = setTimeout(() => {
@@ -72,14 +77,5 @@ class Sandbox {
     this.output.contentWindow.document.open();
     this.output.contentWindow.document.writeln(render);
     this.output.contentWindow.document.close();
-  }
-  
-  tryCallback(callback) {
-    
-    try {
-      callback();
-    } catch (error) {
-      console.log(error);
-    }
   }
 }
