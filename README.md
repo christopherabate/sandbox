@@ -53,7 +53,7 @@ new Sandbox({box: document.querySelector("#Sandbox-1"), editable: () => {
 ### Multiple sandboxes
 
 ```js
-// Turn every ".sanbbox" element to Sandbox
+// Turn every ".sandbox" element to Sandbox
 let codeboxes = this.box.querySelectorAll(".sandbox")forEach((box) => {
   new Sandbox({box: box)});
 });
