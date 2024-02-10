@@ -1,6 +1,6 @@
 # Sandbox
 
-An simple HTML/CSS/JS sandbox
+A simple HTML/CSS/JS sandbox
 
 ## Get started
 
