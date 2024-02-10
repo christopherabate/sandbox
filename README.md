@@ -37,5 +37,24 @@ Your HTML document must contain:
 
 | Option | Description | Default |
 |---|---|---|
-| `selector` | Allows any CSS selector. | `".sandbox"` |
+| `box` | Allows any DOM element. Applies to the first element within the document that matches the specified selector. | `"document.querySelector(".sandbox")"` |
 | `editable` | Allows `true` or a callback function for each change on text box. | `false` |
+
+## Advances examples
+### With options
+
+```js
+// Custom element "#Sandbox-1"
+// Custom callback for each change 
+new Sandbox({box: document.querySelector("#Sandbox-1"), editable: () => {
+  alert("Text changed");
+}});
+```
+### Multiple sandboxes
+
+```js
+// Turn every ".sanbbox" element to Sandbox
+let codeboxes = this.box.querySelectorAll(".sandbox")forEach((box) => {
+  new Sandbox({box: box)});
+});
+```
