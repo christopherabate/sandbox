@@ -44,7 +44,7 @@ The HTML document must contain:
 
 The constructor returns the DOM element.
 
-## Advances examples
+## Advanced examples
 ### With options
 
 ```js
