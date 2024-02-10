@@ -38,7 +38,11 @@ The HTML document must contain:
 | Option | Description | Default |
 |---|---|---|
 | `box` | Allows any DOM element. Applies to the first element within the document that matches the specified selector. | `"document.querySelector(".sandbox")"` |
-| `editable` | Allows `true` or a callback function for each change on text box. | `false` |
+| `editable` | Allows `true`, `false` or a callback function for each change on text box. | `false` |
+
+## Return value
+
+The constructor returns the DOM element.
 
 ## Advances examples
 ### With options
@@ -46,7 +50,7 @@ The HTML document must contain:
 ```js
 // Custom element "#Sandbox-1"
 // Custom callback for each change 
-new Sandbox({box: document.querySelector("#Sandbox-1"), editable: () => {
+let sandbox = new Sandbox({box: document.querySelector("#Sandbox-1"), editable: () => {
   alert("Text changed");
 }});
 ```
@@ -54,7 +58,7 @@ new Sandbox({box: document.querySelector("#Sandbox-1"), editable: () => {
 
 ```js
 // Turn every ".sandbox" element to Sandbox
-let codeboxes = this.box.querySelectorAll(".sandbox")forEach((box) => {
-  new Sandbox({box: box)});
+let sandboxes = this.box.querySelectorAll(".sandbox")forEach((box) => {
+  let sandbox = new Sandbox({box: box)});
 });
 ```
