@@ -40,14 +40,6 @@ class Sandbox {
           
           codebox.textContent = e.target.value;
           
-          if (typeof this.editable === "function") {
-            try {
-              this.editable();
-            } catch (error) {
-              console.log(error);
-            }
-          }
-          
           clearTimeout(timeoutID);
           timeoutID = setTimeout(() => {
             this.update()
