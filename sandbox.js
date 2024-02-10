@@ -1,19 +1,21 @@
 class Sandbox {
   
   constructor(options = {}) {
-    this.selector = options.selector || ".sandbox";
+    
+    this.box = options.box || document.querySelector(".sandbox");
     this.editable = options.editable || false;
     
-    this.sandbox = document.querySelector(this.selector);
-    this.output = this.sandbox.querySelector("iframe");
+    this.output = this.box.querySelector("iframe");
     this.template = this.output.textContent;
     
     this.update();
     
     if (this.editable !== false) {
-      let codeboxes = this.sandbox.querySelectorAll("pre code");
+      
+      let codeboxes = this.box.querySelectorAll("pre code");
     
       codeboxes.forEach((codebox) => {
+      
         let editor = document.createElement("div");
         editor.classList.add("sandbox-editor");
         
@@ -35,6 +37,7 @@ class Sandbox {
         let timeoutID;
         
         textarea.addEventListener("input", (e) => {
+          
           codebox.textContent = e.target.value;
           
           if (typeof this.editable === "function") {
@@ -55,8 +58,9 @@ class Sandbox {
   }
   
   update() {
+    
     let input = [...this.template.matchAll(/\$\{([\w-]+)\}/g)].reduce((tag, language) => {
-      return {...tag, [language[1]]: this.sandbox.querySelector(`code[class*="${language[1]}"]`).textContent};
+      return {...tag, [language[1]]: this.box.querySelector(`code[class*="${language[1]}"]`).textContent};
     }, {});
     
     let languages = Object.keys(input);
