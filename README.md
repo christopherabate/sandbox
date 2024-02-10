@@ -3,7 +3,7 @@ An simple HTML/CSS/JS sandbox
 
 ## Get started
 
-Your HTML document must contain:
+The HTML document must contain:
 - Single `iframe` containing the tagged template.
 - As many `<pre><code>` as tags in iframe template.
 - A class containing the tag name for each `<code>`.
