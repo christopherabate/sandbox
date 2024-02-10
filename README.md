@@ -1,4 +1,4 @@
-# sandbox
+# Sandbox
 An simple HTML/CSS/JS sandbox
 
 ## Get started
