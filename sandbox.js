@@ -55,6 +55,8 @@ class Sandbox {
         })
       });
     }
+    
+    return this.box;
   }
   
   update() {
