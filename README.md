@@ -1,4 +1,5 @@
 # Sandbox
+
 An simple HTML/CSS/JS sandbox
 
 ## Get started
@@ -7,6 +8,9 @@ The HTML document must contain:
 - Single `iframe` containing the tagged template.
 - As many `<pre><code>` as tags in iframe template.
 - A class containing the tag name for each `<code>`.
+  
+> [!IMPORTANT]
+> Inside the template, tags must respect the convention: dollar sign followed by curly braces ${}.
 
 ```html
 <div class="sandbox">
@@ -42,9 +46,11 @@ The HTML document must contain:
 
 ## Return value
 
-The constructor returns the DOM element.
+> [!NOTE]
+> The constructor returns the DOM element.
 
 ## Advanced examples
+
 ### With options
 
 ```js
