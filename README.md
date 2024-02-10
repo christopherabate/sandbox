@@ -35,12 +35,10 @@ The HTML document must contain:
 
 ## Options
 
-| Option | Description | Default |
-|---|---|---|
-| `box` | Allows any DOM element.
-Applies to the first element within the document that matches the specified selector. | `"document.querySelector(".sandbox")"` |
-| `editable` | Allows `true` or `false`.
-`true` sync each `<code>` with a new `<textarea>` and update output on change with a 400ms debounce. | `false` |
+| Option | Values | Description | Default |
+|---|---|---|---|
+| `box` | Allows any DOM element | Applies to the first element within the document that matches the specified selector. | `"document.querySelector(".sandbox")"` |
+| `editable` | Allows `true` or `false` | `true` sync each `<code>` with a new `<textarea>` and update output on change with a 400ms debounce. | `false` |
 
 ## Return value
 
