@@ -26,7 +26,7 @@ The HTML document must contain:
       </head>
       <body>
         ${html}
-        <script type="module">${js}</script>
+        <script>${js}</script>
       </body>
     </html>
   </iframe>
