@@ -2,12 +2,12 @@
 
 A simple HTML/CSS/JS sandbox
 
-### Install
+## Install
 
-Install sandbox in your Node.js powered apps with [the npm package](https://www.npmjs.com/package/bootstrap):
+Install sandbox in your Node.js powered apps with [the npm package](https://www.npmjs.com/package/@christopherabate/sandbox):
 
 ```sh
-npm install @christopherabate/sandbox@{{< param "current_version" >}}
+npm install @christopherabate/sandbox
 ```
 
 ## Get started
