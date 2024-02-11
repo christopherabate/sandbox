@@ -2,6 +2,14 @@
 
 A simple HTML/CSS/JS sandbox
 
+### Install
+
+Install sandbox in your Node.js powered apps with [the npm package](https://www.npmjs.com/package/bootstrap):
+
+```sh
+npm install @christopherabate/sandbox@{{< param "current_version" >}}
+```
+
 ## Get started
 
 The HTML document must contain:
@@ -13,6 +21,7 @@ The HTML document must contain:
 > Inside the template, tags must respect the convention: dollar sign followed by curly braces ${}.
 
 ```html
+<!-- Sample HTML -->
 <div class="sandbox">
   <pre><code class="html"></code></pre>
   <pre><code class="css"></code></pre>
@@ -32,10 +41,11 @@ The HTML document must contain:
   </iframe>
 </div>
 
-<!-- Or import as a module -->
+<!-- Include sandbox.js file -->
 <script src="/path/to/sandbox.js"></script>
 <!-- Or import as a module -->
 <script type="module">import sandbox from "path/to/@christopherabate/sandbox/sandbox.js";</script>
+<!-- Init -->
 <script>sandbox({ options });</script>
 ```
 
