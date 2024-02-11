@@ -32,9 +32,8 @@ The HTML document must contain:
   </iframe>
 </div>
 
-<link rel="stylesheet" href="/path/to/sandbox.css">
 <script src="/path/to/sandbox.js"></script>
-<script>let sandbox = new Sandbox(options);</script>
+<script>sandbox({ options });</script>
 ```
 
 ## Options
@@ -56,13 +55,13 @@ The HTML document must contain:
 ```js
 // Custom element "#Sandbox-1"
 // Enable edition
-let sandbox = new Sandbox({ box: document.querySelector("#Sandbox-1"), editable: true });
+sandbox({ box: document.querySelector("#Sandbox-1"), editable: true });
 ```
 ### Multiple sandboxes
 
 ```js
 // Turn every ".sandbox" element to Sandbox
 let sandboxes = this.box.querySelectorAll(".sandbox")forEach((box) => {
-  let sandbox = new Sandbox({ box: box });
+  sandbox({ box: box });
 });
 ```
