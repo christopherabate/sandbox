@@ -1,6 +1,6 @@
 {
   "name": "@christopherabate/sandbox",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple HTML/CSS/JS sandbox",
   "main": "sandbox.js",
   "scripts": {
