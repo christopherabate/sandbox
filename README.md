@@ -32,7 +32,10 @@ The HTML document must contain:
   </iframe>
 </div>
 
+<!-- Or import as a module -->
 <script src="/path/to/sandbox.js"></script>
+<!-- Or import as a module -->
+<script type="module">import sandbox from "path/to/@christopherabate/sandbox/sandbox.js";</script>
 <script>sandbox({ options });</script>
 ```
 
