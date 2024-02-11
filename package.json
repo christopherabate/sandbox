@@ -1,0 +1,19 @@
+{
+  "name": "@christopherabate/sandbox",
+  "version": "1.0.0",
+  "description": "A simple HTML/CSS/JS sandbox",
+  "main": "sandbox.js",
+  "scripts": {
+    "test": "npm-run-all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christopherabate/sandbox.git"
+  },
+  "author": "Christopher Abate",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christopherabate/sandbox/issues"
+  },
+  "homepage": "https://github.com/christopherabate/sandbox#readme"
+}
