@@ -1,20 +1,23 @@
+'use strict';
+
 const sandbox = (options = {}) => {
-  this.box = options.box || document.querySelector(".sandbox");
-  this.editable = options.editable || false;
   
-  this.output = this.box.querySelector("iframe");
-  this.template = this.output.textContent;
+  const BOX = options.box || document.querySelector(".sandbox");
+  const EDITABLE = options.editable || false;
+  const TEMPLATE = BOX.querySelector("iframe").textContent;
   
-  sandbox.update();
+  sandbox.update(BOX, TEMPLATE);
   
-  if (this.editable !== false) {
+  if (EDITABLE !== false) {
     
-    this.box.querySelectorAll("pre code").forEach((codebox) => {
+    BOX.querySelectorAll("pre code").forEach((codebox) => {
     
       let editor = document.createElement("div");
+      let textarea = document.createElement("textarea");
+      let timeoutID;
+      
       editor.classList.add("sandbox-editor");
       
-      let textarea = document.createElement("textarea");
       textarea.setAttribute("rows", "1");
       textarea.setAttribute("spellcheck", "false");
       textarea.setAttribute("autocorrect", "off");
@@ -29,7 +32,6 @@ const sandbox = (options = {}) => {
       editor.appendChild(codebox.parentElement);
       editor.appendChild(textarea);
       
-      let timeoutID;
       
       textarea.addEventListener("input", (e) => {
         
@@ -37,38 +39,32 @@ const sandbox = (options = {}) => {
         
         clearTimeout(timeoutID);
         timeoutID = setTimeout(() => {
-          sandbox.update()
+          sandbox.update(BOX, TEMPLATE);
         }, 400);
       })
     });
   }
   
-  return this.box;
+  return BOX;
 };
 
-sandbox.update = () => {
+sandbox.update = (box, template) => {
   let input = [...template.matchAll(/\$\{([\w-]+)\}/g)].reduce((tag, language) => {
-    return {...tag, [language[1]]: this.box.querySelector(`code[class*="${language[1]}"]`).textContent};
+    return {...tag, [language[1]]: box.querySelector(`code[class*="${language[1]}"]`).textContent};
   }, {});
-  
+  let output = box.querySelector("iframe");
   let languages = Object.keys(input);
   let code = Object.values(input);
-  
   let render = new Function(...languages, `return \`${template}\`;`)(...code);
-  let clone = this.output.cloneNode();
-  this.output.replaceWith(clone);
-  this.output = clone;
   
-  this.output.contentWindow.document.open();
-  this.output.contentWindow.document.writeln(render);
-  this.output.contentWindow.document.close();
-  
-  return true;
+  output.src = URL.createObjectURL(new Blob([render], {type: "text/html"}));
 };
 
-const sheet = new CSSStyleSheet();
-sheet.insertRule(".sandbox-editor { display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; gap: 0; }");
-sheet.insertRule(".sandbox-editor pre, .sandbox-editor textarea { font-family: monospace; font-size: .875rem; line-height: 1.5rem; grid-area: 1 / 1 / 2 / 2; padding: 1em !important; margin: 0 !important; overflow: hidden; border: none; }");
-sheet.insertRule(".sandbox-editor textarea { caret-color: white; background-color: transparent; color: transparent; resize: none; appearance: none; }");
-sheet.insertRule(".sandbox-editor code { word-wrap: break-word; white-space: pre-wrap; overflow-wrap: anywhere; overflow: hidden; }");
-document.adoptedStyleSheets = [sheet];
+const SHEET = new CSSStyleSheet();
+SHEET.insertRule(".sandbox-editor { display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; gap: 0; }");
+SHEET.insertRule(".sandbox-editor pre, .sandbox-editor textarea { font-family: monospace; font-size: .875rem; line-height: 1.5rem; grid-area: 1 / 1 / 2 / 2; padding: 1em !important; margin: 0 !important; overflow: hidden; border: none; }");
+SHEET.insertRule(".sandbox-editor textarea { caret-color: white; background-color: transparent; color: transparent; resize: none; appearance: none; }");
+SHEET.insertRule(".sandbox-editor code { word-wrap: break-word; white-space: pre-wrap; overflow-wrap: anywhere; overflow: hidden; }");
+document.adoptedStyleSheets = [SHEET];
+
+export default sandbox
