@@ -74,7 +74,7 @@ sandbox({ box: document.querySelector("#Sandbox-1"), editable: true });
 
 ```js
 // Turn every ".sandbox" element to Sandbox
-let sandboxes = this.box.querySelectorAll(".sandbox")forEach((box) => {
+document.querySelectorAll(".sandbox").forEach((box) => {
   sandbox({ box: box });
 });
 ```
