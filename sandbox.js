@@ -9,9 +9,7 @@ const sandbox = (options = {}) => {
   
   if (this.editable !== false) {
     
-    let codeboxes = this.box.querySelectorAll("pre code");
-  
-    codeboxes.forEach((codebox) => {
+    this.box.querySelectorAll("pre code").forEach((codebox) => {
     
       let editor = document.createElement("div");
       editor.classList.add("sandbox-editor");
