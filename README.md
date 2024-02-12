@@ -21,7 +21,6 @@ The HTML document must contain:
 > Inside the template, tags must respect the convention: dollar sign followed by curly braces ${}.
 
 ```html
-<!-- Sample HTML -->
 <div class="sandbox">
   <pre><code class="html"></code></pre>
   <pre><code class="css"></code></pre>
@@ -41,12 +40,10 @@ The HTML document must contain:
   </iframe>
 </div>
 
-<!-- Include sandbox.js file -->
-<script src="/path/to/sandbox.js"></script>
-<!-- Or import as a module -->
-<script type="module">import sandbox from "path/to/@christopherabate/sandbox/sandbox.js";</script>
-<!-- Init -->
-<script>sandbox({ options });</script>
+<script type="module">
+  import sandbox from "path/to/@christopherabate/sandbox/sandbox.js";
+  sandbox({ options });
+</script>
 ```
 
 ## Options
