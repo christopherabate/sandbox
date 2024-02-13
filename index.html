@@ -10,7 +10,7 @@
       <h1 class="display-1 text-center m-3">sandbox</h1>
     </header>
     <main role="main">
-      <h2>demo</h2>
+      <h2>Default example</h2>
       <div class="sandbox">
         <pre><code class="html">&lt;h1&gt;demo&lt;/h1&gt;</code></pre>
         <pre><code class="css">h1 { color: red; }</code></pre>
@@ -29,12 +29,54 @@
           </html>
         </iframe>
       </div>
-      <script type="module">
-        import sandbox from "./sandbox.js";
-        sandbox();
-      </script>
+      <h2>Multiple example</h2>
+      <div class=".multiple-sandbox">
+        <pre><code class="html">&lt;h1&gt;demo&lt;/h1&gt;</code></pre>
+        <pre><code class="css">h1 { color: red; }</code></pre>
+        <pre><code class="js">console.log(document.querySelectorAll('h1'));</code></pre>
+        <iframe>
+          <!doctype html>
+          <html>
+            <head>
+              <meta charset="utf-8">
+              <style>${css}</style>
+            </head>
+            <body>
+              ${html}
+              <script>${js}</script>
+            </body>
+          </html>
+        </iframe>
+      </div>
+      <div class=".multiple-sandbox">
+        <pre><code class="html">&lt;h1&gt;demo&lt;/h1&gt;</code></pre>
+        <pre><code class="css">h1 { color: red; }</code></pre>
+        <pre><code class="js">console.log(document.querySelectorAll('h1'));</code></pre>
+        <iframe>
+          <!doctype html>
+          <html>
+            <head>
+              <meta charset="utf-8">
+              <style>${css}</style>
+            </head>
+            <body>
+              ${html}
+              <script>${js}</script>
+            </body>
+          </html>
+        </iframe>
+      </div>
     </main>
     <footer>
     </footer>
+    <script type="module">
+      import sandbox from "./sandbox.js";
+      // Default example
+      sandbox();
+      // Multiple and editable example
+      document.querySelectorAll(".multiple-sandbox").forEach((box) => {
+        sandbox({ box: box, editable: true });
+      });
+    </script>
   </body>
 </html>
