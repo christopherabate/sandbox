@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>sandbox</title>
+  </head>
+  <body>
+    <header role="banner">
+      <h1 class="display-1 text-center m-3">sandbox</h1>
+    </header>
+    <main role="main">
+      <h2>demo</h2>
+      <div class="sandbox">
+        <pre><code class="html">&lt;p&gt;demo&lt;/p&gt;</code></pre>
+        <pre><code class="css">p { color: red; }</code></pre>
+        <pre><code class="js">console.log(document.querySelectorAll('h1'));</code></pre>
+        <iframe>
+          <!doctype html>
+          <html>
+            <head>
+              <meta charset="utf-8">
+              <style>${css}</style>
+            </head>
+            <body>
+              ${html}
+              <script>${js}</script>
+            </body>
+          </html>
+        </iframe>
+      </div>
+      <script type="module">
+        import sandbox from "./sandbox.js";
+        sandbox();
+      </script>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
