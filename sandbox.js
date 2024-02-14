@@ -61,7 +61,7 @@ sandbox.update = (box, template) => {
 };
 
 const SANDBOX_SHEET = new CSSStyleSheet();
-SANDBOX_SHEET.insertRule(".sandbox-editor { display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; gap: 0; }");
+SANDBOX_SHEET.insertRule(".sandbox-editor { display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; gap: 0; height: 100%; }");
 SANDBOX_SHEET.insertRule(".sandbox-editor pre, .sandbox-editor textarea { font-family: monospace; font-size: .875rem; line-height: 1.5rem; grid-area: 1 / 1 / 2 / 2; padding: 1em !important; margin: 0 !important; overflow: hidden; border: none; }");
 SANDBOX_SHEET.insertRule(".sandbox-editor textarea { caret-color: white; background-color: transparent; color: transparent; resize: none; appearance: none; }");
 SANDBOX_SHEET.insertRule(".sandbox-editor code { word-wrap: break-word; white-space: pre-wrap; overflow-wrap: anywhere; overflow: hidden; }");
